@@ -36,7 +36,9 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      this.vennChart(this.data);
+      if (this.data.length > 0) {
+        this.vennChart(this.data);
+      }
     });
   },
   methods: {
