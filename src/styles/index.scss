@@ -1,11 +1,61 @@
-@import './variable.scss';
-/* Iconont style */
-@import './iconfont.scss';
-/* Mixin scss */
-@import './mixins/index.scss';
-/* Base class style */
-@import './base/index.scss';
-/* Animate Vue style */
-@import './animates/index.scss';
-/* Component style */
-@import './components/index.scss';
+.ans-chart {
+  &__center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__left {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  &__right {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+.venn-box {
+  width: 400px;
+  height: 450px;
+  position: relative;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  font-size: 12px;
+  .venn-tip {
+    display: inline-block;
+    padding: 5px 10px;
+    position: absolute;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+
+  .app-name {
+    text-align: center;
+  }
+
+  .app-name-desc {
+    margin-right: 28px;
+    font-size: 14px;
+    color: #545454;
+  }
+  .app-circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+  }
+  .dot {
+    display: inline-block;
+    margin: 0 7px;
+    height: 4px;
+    width: 4px;
+    background: #d3d3d3;
+    border-radius: 2px;
+    position: relative;
+    top: -4px;
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "name": "fast-snail",
+  "name": "ans-chart",
   "version": "1.0.0",
-  "description": "A framework for quickly building PC-web application",
-  "main": "lib/snail.min.js",
+  "description": "A chart library base on vue and echarts",
+  "main": "lib/ans-chart.min.js",
   "files": [
     "lib",
     "src",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:lazipy/fast-snail.git"
+    "url": "git@github.com:lazipy/ans-chart.git"
   },
   "keywords": [
     "vue",
@@ -24,14 +24,14 @@
     "ajax",
     "style",
     "directives",
-    "snail"
+    "chart"
   ],
   "author": "lazipy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lazipy/fast-snail/issues"
+    "url": "https://github.com/lazipy/ans-chart/issues"
   },
-  "homepage": "https://github.com/lazipy/fast-snail/blob/master/README.md",
+  "homepage": "https://github.com/lazipy/ans-chart/blob/master/README.md",
   "devDependencies": {
     "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.3",
@@ -79,14 +79,12 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "better-scroll": "^1.13.2",
-    "debounce-throttle": "^1.0.4",
-    "popper.js": "^1.14.4",
-    "v-click-outside-x": "^3.2.2",
+    "d3": "^5.12.0",
+    "echarts": "^4.4.0",
+    "lodash": "^4.17.15",
+    "uuid": "^3.3.3",
+    "venn.js": "^0.2.20",
     "vue": "^2.5.17",
-    "vue-draggable-resizable": "^1.7.5",
-    "vue-highlightjs": "^1.3.3",
-    "vue-resizable": "^1.0.15",
     "vue-router": "^3.0.1"
   }
 }

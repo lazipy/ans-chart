@@ -1,14 +1,10 @@
 import Vue from 'vue';
 import router from './router';
 import App from './App';
-import Snail from '../src/index.js';
+import AnsChart from '../src/index.js';
 import '../src/styles/index.scss';
 
-Vue.use(Snail, {
-  components: {
-    'xx-alert': 'BAlert'
-  }
-});
+Vue.use(AnsChart);
 
 Vue.config.productionTip = false;
 
