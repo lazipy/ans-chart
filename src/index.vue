@@ -84,9 +84,7 @@ export default {
         console.log(mutationsList);
         for(var mutation of mutationsList) {
           if (mutation.type == 'attributes') {
-            if (this.chart) {
-              this.chart.resize();
-            }
+            this.resizeHandler();
           }
         }
       },
