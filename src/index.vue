@@ -10,7 +10,7 @@ import uuid from 'uuid/v4';
 import defaultOptions from './helpers/default-options';
 import defaultTheme from './helpers/default-theme';
 import colors from './helpers/color-list';
-import { on, off } from './helpers/assist';
+import { on, off, MutationObserver } from './helpers/assist';
 
 export default {
   name: 'ans-chart',
@@ -30,6 +30,9 @@ export default {
       type: String,
       defalut: 'center',
       validator: (value) => ['left', 'center', 'right'].includes(value)
+    },
+    watcher: {
+      type: String,
     },
     initOptions: {
       type: Object,
@@ -75,6 +78,18 @@ export default {
     return {
       chart: null,
       source: null,
+      observer: null,
+      config: { attributes: true, childList: false, subtree: false },
+      callback: (mutationsList) => {
+        console.log(mutationsList);
+        for(var mutation of mutationsList) {
+          if (mutation.type == 'attributes') {
+            if (this.chart) {
+              this.chart.resize();
+            }
+          }
+        }
+      },
       resizeHandler: null
     }
   },
@@ -103,6 +118,11 @@ export default {
     }
     // 初始化图表
     this.initChart();
+    // 初始化监听对象
+    if (this.watcher) {
+      this.observer = new MutationObserver(this.callback);
+      this.observer.observe(document.getElementById(this.watcher), this.config);
+    }
     // 浏览器 resize
     if (this.resizeable) {
       this.addResizeableHandler();
@@ -115,6 +135,12 @@ export default {
     // 卸载图表
     this.chart.dispose();
     this.chart = null;
+
+    // 移除监听
+    if (this.observer) {
+      this.observer.disconnect();
+      this.observer.takeRecords();
+    }
 
     // 卸载事件
     if (this.resizeable) {

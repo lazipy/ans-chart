@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <ans-chart width="100%" height="400px" :options="options" />
-    <ans-venn :data="venn"></ans-venn>
+    <div class="left" id="left" :style="{ width: width }"></div>
+    <div class="right">
+      <ans-chart watcher="left" width="100%" height="400px" :options="options" />
+      <ans-venn :data="venn"></ans-venn>
+    </div>
+
+    <button @click="change">改变高度</button>
   </div>
 </template>
 
@@ -44,8 +49,35 @@ export default {
           sets: ['腾讯视频', 'QQ'],
           size: 37516.0092206173,
         }
-      ]
+      ],
+      width: '200px'
+    }
+  },
+  methods: {
+    change() {
+      if (this.width === '200px') {
+        this.width = '60px';
+      } else {
+        this.width = '200px';
+      }
     }
   }
 };
 </script>
+
+<style lang="scss">
+#app {
+  display: flex;
+  align-items: center;
+
+  .left {
+    width: 200px;
+    height: 1000px;
+    background: gray;
+  }
+  .right {
+    flex: 1;
+  }
+}
+</style>
+
